@@ -54,7 +54,7 @@ class ProductManager{
        
     }
 
-    getProduct(){
+    getProducts(){
         return this.products;
     }
 
@@ -69,13 +69,28 @@ class ProductManager{
 
 }
 
+/* TEST
+
+Se creará una instancia de la clase “ProductManager”
+Se llamará “getProducts” recién creada la instancia, debe devolver un arreglo vacío []
+Se llamará al método “addProduct” con los campos:
+title: “producto prueba”
+description:”Este es un producto prueba”
+price:200,
+thumbnail:”Sin imagen”
+code:”abc123”,
+stock:25
+El objeto debe agregarse satisfactoriamente con un id generado automáticamente SIN REPETIRSE
+Se llamará el método “getProducts” nuevamente, esta vez debe aparecer el producto recién agregado
+Se llamará al método “addProduct” con los mismos campos de arriba, debe arrojar un error porque el código estará repetido.
+Se evaluará que getProductById devuelva error si no encuentra el producto o el producto en caso de encontrarlo
+
+*/
+
 const producto1 = new ProductManager();
-producto1.addProduct("a","b",100,"n","cv",100);
-producto1.addProduct("a","b",100,"n","cj");
-console.log(producto1.getProductById(2))
-//console.log(producto1.getProduct());
-/* const producto2 = new ProductManager();
-producto2.addProduct("a","b",100,"n","cv",20);
-producto2.addProduct("a","b",100,"n","cv",20);
-console.log("PRODUCTO 2")
-console.log(producto2.getProduct()); */
+//console.log(producto1.getProducts());
+producto1.addProduct("producto prueba",200,"Este es un producto prueba","Sin imagen","abc123",25);
+//console.log(producto1.getProducts());
+producto1.addProduct("producto prueba",200,"Este es un producto prueba","Sin imagen","abc123",25);
+//console.log(producto1.getProductById(1));
+console.log(producto1.getProductById(3));
