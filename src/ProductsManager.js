@@ -1,6 +1,6 @@
-const fs = require("fs");
+import fs from "fs";
 
-class ProductManager {
+export default class ProductManager {
   static idProduct = 1;
   constructor(path) {
     this.path = path;
