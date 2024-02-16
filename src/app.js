@@ -24,7 +24,7 @@ app.get("/products", async (req, res) => {
       res.json(await producto1.getProducts());
     }
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ error: "Error interno del servidor" });
   }
 });
 
@@ -34,6 +34,6 @@ app.get("/products/:pId", async (req, res) => {
     pId = parseInt(pId);
     res.json(await producto1.getProductById(pId));
   } catch (error) {
-    console.log(error);
+    res.status(500).json({ error: "Error interno del servidor" });
   }
 });
