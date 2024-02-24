@@ -1,3 +1,4 @@
+import { error } from "console";
 import fs from "fs";
 
 export default class ProductManager {
@@ -22,25 +23,35 @@ export default class ProductManager {
     }
   }
 
-  async addProduct(title, description, price, thumbnail, code, stock) {
+  async addProduct(obj) {
     try {
       const products = await this.getProducts();
 
-      if (products.some((p) => p.code === code)) {
+      if (products.some((p) => p.code === obj.code)) {
         return console.log("No se puede repetir el mismo codigo");
       }
-      if (!title || !description || !price || !thumbnail || !code || !stock) {
+      if (
+        !obj.title ||
+        !obj.description ||
+        !obj.price ||
+        !obj.code ||
+        !obj.stock ||
+        !obj.status ||
+        !obj.category
+      ) {
         return console.log("Todos los campos son obligatorios.");
       }
 
       let newProduct = {
         id: await this.#ultimoId(),
-        title: title,
-        description: description,
-        price: price,
-        thumbnail: thumbnail,
-        code: code,
-        stock: stock,
+        title: obj.title,
+        description: obj.description,
+        price: obj.price,
+        thumbnail: obj.thumbnail,
+        code: obj.code,
+        category: obj.category,
+        stock: obj.stock,
+        status: obj.status,
       };
       products.push(newProduct);
       await fs.promises.writeFile(this.path, JSON.stringify(products, null, 2));
