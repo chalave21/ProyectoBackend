@@ -92,7 +92,10 @@ export default class ProductManager {
       let index = arrayObjetos.findIndex((objeto) => objeto.id === id);
 
       if (index !== -1) {
-        arrayObjetos[index] = objetoActualizacion;
+        arrayObjetos[index] = {
+          ...arrayObjetos[index],
+          ...objetoActualizacion,
+        };
         await fs.promises.writeFile(
           this.path,
           JSON.stringify(arrayObjetos, null, 2)
