@@ -1,0 +1,48 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+
+    <div class="container">
+
+      <h1>PRODUCTOS</h1>
+
+      <ul>
+        {{#each getProduct}}
+
+          <li>
+            <br />
+            <strong>Id:</strong>
+            {{id}}<br />
+            <strong>Titulo:</strong>
+            {{title}}<br />
+            <strong>Descripcion:</strong>
+            {{description}}<br />
+            <strong>Precio:</strong>
+            {{price}}<br />
+            <strong>Thumbnail:</strong>
+            {{thumbnail}}<br />
+            <strong>Codigo:</strong>
+            {{code}}<br />
+            <strong>Categoria:</strong>
+            {{category}}<br />
+            <strong>Stock:</strong>
+            {{stock}}<br />
+            <strong>Status:</strong>
+            {{status}}<br />
+
+            <button class="addBtn" data-id="{{id}}">Agregar al Carrito</button>
+            <button class="removeBtn" data-id="{{id}}">Eliminar Producto</button>
+          </li>
+
+        {{/each}}
+      </ul>
+
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

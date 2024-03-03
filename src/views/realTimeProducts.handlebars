@@ -1,0 +1,78 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+      <div>
+        <a href="/realTimeProducts">Productos en tiempo real</a>
+      </div>
+    </header>
+    <h1>Productos en Tiempo Real</h1>
+    <h2>Lista de Productos</h2>
+    <div class="lista-productos" id="listaProductos">
+      <ul>
+        {{#each getProduct}}
+
+          <li>
+            <br />
+            <strong>Id:</strong>
+            {{id}}<br />
+            <strong>Titulo:</strong>
+            {{title}}<br />
+            <strong>Descripcion:</strong>
+            {{description}}<br />
+            <strong>Precio:</strong>
+            {{price}}<br />
+            <strong>Thumbnail:</strong>
+            {{thumbnail}}<br />
+            <strong>Codigo:</strong>
+            {{code}}<br />
+            <strong>Categoria:</strong>
+            {{category}}<br />
+            <strong>Stock:</strong>
+            {{stock}}<br />
+            <strong>Status:</strong>
+            {{status}}<br />
+
+            <button class="addBtn" data-id="{{id}}">Agregar al Carrito</button>
+            <button class="removeBtn" data-id="{{id}}">Eliminar Producto</button>
+          </li>
+
+        {{/each}}
+      </ul>
+
+    </div>
+    </div>
+
+    <form>
+      <label for="title">titulo</label>
+      <input type="text" id="form-title" />
+      <label for="">estado</label>
+      <select id="form-select">
+        <option value="true">Verdadero</option>
+        <option value="false">Falso</option>
+      </select>
+      <label>category</label>
+      <input type="text" id="form-category" />
+      <label>descripcion</label>
+      <input type="text" id="form-description" />
+      <label>precio</label>
+      <input type="text" id="form-price" />
+      <label>thumbnail</label>
+      <input type="text" id="form-thumbnail" />
+      <label>codigo</label>
+      <input type="text" id="form-code" />
+      <label>stock</label>
+      <input type="number" id="form-stock" />
+
+      <button id="submit-button">Enviar</button>
+    </form>
+    <script src="https://cdn.socket.io/4.7.3/socket.io.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
