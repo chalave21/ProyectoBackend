@@ -1,0 +1,46 @@
+[
+  {
+    "id": 4,
+    "title": "Nokia",
+    "description": "1100",
+    "price": 3000,
+    "thumbnail": "https://res.cloudinary.com/dxe1ly9oz/image/upload/v1706582692/D_NQ_NP_854246-MLA45405542648_032021-O_d5dveu.webp",
+    "code": "ascsd45324",
+    "category": "zapatillas",
+    "stock": 10,
+    "status": true
+  },
+  {
+    "id": 5,
+    "title": "Samsung",
+    "description": "B099",
+    "price": 15000,
+    "thumbnail": "https://res.cloudinary.com/dxe1ly9oz/image/upload/v1706582692/D_NQ_NP_854246-MLA45405542648_032021-O_d5dveu.webp",
+    "code": "xyz98765",
+    "category": "electrónicos",
+    "stock": 5,
+    "status": true
+  },
+  {
+    "id": 6,
+    "title": "zapatillas nike 4",
+    "description": "las mejores zapatillas ",
+    "price": 123233,
+    "thumbnail": "https://res.cloudinary.com/dxe1ly9oz/image/upload/v1706582132/cld-sample-5.jpg",
+    "code": "sdwertghjk",
+    "category": "zapatillas nike premium",
+    "stock": 22,
+    "status": true
+  },
+  {
+    "id": 7,
+    "title": "asdsad",
+    "description": "dsdsdsdsd",
+    "price": 3434,
+    "thumbnail": "https://res.cloudinary.com/dxe1ly9oz/image/upload/v1706582132/cld-sample-5.jpg",
+    "code": "dfdfdfghghnbnb",
+    "category": "sdsdsdsd",
+    "stock": 22,
+    "status": true
+  }
+]

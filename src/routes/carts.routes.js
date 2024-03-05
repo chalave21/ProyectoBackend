@@ -1,8 +1,11 @@
 import express from "express";
-import CartsManager from "../CartsManager.js";
+import CartsManager from "../controller/CartsManager.js";
 
 const router = express.Router();
-const cartsManager = new CartsManager("./products.json", "./carts.json");
+const cartsManager = new CartsManager(
+  "./src/model/products.json",
+  "./src/model/carts.json"
+);
 
 router.post("/api/carts", async (req, res) => {
   try {
