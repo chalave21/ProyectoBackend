@@ -5,6 +5,7 @@ import exphbs from "express-handlebars";
 import viewsRouter from "./routes/views.route.js";
 import ProductsManager from "./controller/ProductsManager.js";
 import { Server } from "socket.io";
+import "../database.js";
 
 const app = express();
 app.use(express.urlencoded({ extended: true }));

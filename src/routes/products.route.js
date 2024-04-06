@@ -1,12 +1,18 @@
 import express from "express";
 import ProductsManager from "../controller/ProductsManager.js";
+//
+import mongoose from "mongoose";
+import mongoosePaginate from "mongoose-paginate-v2";
+//
 const router = express.Router();
 
 const producto1 = new ProductsManager("./src/model/products.json");
 
 router.get("/api/products", async (req, res) => {
   try {
-    let limit = parseInt(req.query.limit);
+    let page = parseInt(req.query.page) || 1;
+    //////
+    let limit = parseInt(req.query.limit) || 10;
     if (limit) {
       let products = await producto1.getProducts();
       let productsLimit = products.slice(0, limit);
