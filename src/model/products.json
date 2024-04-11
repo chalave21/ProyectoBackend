@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "title": "Producto 1",
     "description": "Descripción del producto 1",
     "price": 1500,
@@ -11,7 +10,6 @@
     "status": true
   },
   {
-    "id": 2,
     "title": "Producto 2",
     "description": "Descripción del producto 2",
     "price": 2500,
@@ -22,7 +20,6 @@
     "status": true
   },
   {
-    "id": 3,
     "title": "Producto 3",
     "description": "Descripción del producto 3",
     "price": 3500,
@@ -33,7 +30,6 @@
     "status": true
   },
   {
-    "id": 4,
     "title": "Producto 4",
     "description": "Descripción del producto 4",
     "price": 2000,
@@ -44,7 +40,6 @@
     "status": true
   },
   {
-    "id": 5,
     "title": "Producto 5",
     "description": "Descripción del producto 5",
     "price": 1800,
@@ -55,7 +50,6 @@
     "status": true
   },
   {
-    "id": 6,
     "title": "Producto 6",
     "description": "Descripción del producto 6",
     "price": 2700,
@@ -66,7 +60,6 @@
     "status": true
   },
   {
-    "id": 7,
     "title": "Producto 7",
     "description": "Descripción del producto 7",
     "price": 3200,
@@ -77,7 +70,6 @@
     "status": true
   },
   {
-    "id": 8,
     "title": "Producto 8",
     "description": "Descripción del producto 8",
     "price": 1900,
@@ -88,7 +80,6 @@
     "status": true
   },
   {
-    "id": 9,
     "title": "Producto 9",
     "description": "Descripción del producto 9",
     "price": 2800,
@@ -99,7 +90,6 @@
     "status": true
   },
   {
-    "id": 10,
     "title": "Producto 10",
     "description": "Descripción del producto 10",
     "price": 2100,
@@ -110,7 +100,6 @@
     "status": true
   },
   {
-    "id": 11,
     "title": "Producto 11",
     "description": "Descripción del producto 11",
     "price": 2400,
@@ -121,7 +110,6 @@
     "status": true
   },
   {
-    "id": 12,
     "title": "Producto 12",
     "description": "Descripción del producto 12",
     "price": 3600,
@@ -132,7 +120,6 @@
     "status": true
   },
   {
-    "id": 13,
     "title": "Producto 13",
     "description": "Descripción del producto 13",
     "price": 1700,
@@ -143,7 +130,6 @@
     "status": true
   },
   {
-    "id": 14,
     "title": "Producto 14",
     "description": "Descripción del producto 14",
     "price": 2600,
@@ -154,7 +140,6 @@
     "status": true
   },
   {
-    "id": 15,
     "title": "Producto 15",
     "description": "Descripción del producto 15",
     "price": 3300,
@@ -165,7 +150,6 @@
     "status": true
   },
   {
-    "id": 16,
     "title": "Producto 16",
     "description": "Descripción del producto 16",
     "price": 2000,
@@ -176,7 +160,6 @@
     "status": true
   },
   {
-    "id": 17,
     "title": "Producto 17",
     "description": "Descripción del producto 17",
     "price": 1900,
@@ -187,7 +170,6 @@
     "status": true
   },
   {
-    "id": 18,
     "title": "Producto 18",
     "description": "Descripción del producto 18",
     "price": 2700,
@@ -198,7 +180,6 @@
     "status": true
   },
   {
-    "id": 19,
     "title": "Producto 19",
     "description": "Descripción del producto 19",
     "price": 3500,
@@ -209,7 +190,6 @@
     "status": true
   },
   {
-    "id": 20,
     "title": "Producto 20",
     "description": "Descripción del producto 20",
     "price": 1800,
@@ -220,7 +200,6 @@
     "status": true
   },
   {
-    "id": 21,
     "title": "Producto 21",
     "description": "Descripción del producto 21",
     "price": 2900,
@@ -231,7 +210,6 @@
     "status": true
   },
   {
-    "id": 22,
     "title": "Producto 22",
     "description": "Descripción del producto 22",
     "price": 3200,
@@ -242,7 +220,6 @@
     "status": true
   },
   {
-    "id": 23,
     "title": "Producto 23",
     "description": "Descripción del producto 23",
     "price": 1700,
@@ -253,7 +230,6 @@
     "status": true
   },
   {
-    "id": 24,
     "title": "Producto 24",
     "description": "Descripción del producto 24",
     "price": 2400,
@@ -264,7 +240,6 @@
     "status": true
   },
   {
-    "id": 25,
     "title": "Producto 25",
     "description": "Descripción del producto 25",
     "price": 3000,
@@ -275,7 +250,6 @@
     "status": true
   },
   {
-    "id": 26,
     "title": "Producto 26",
     "description": "Descripción del producto 26",
     "price": 2000,
@@ -286,7 +260,6 @@
     "status": true
   },
   {
-    "id": 27,
     "title": "Producto 27",
     "description": "Descripción del producto 27",
     "price": 2800,
@@ -297,7 +270,6 @@
     "status": true
   },
   {
-    "id": 28,
     "title": "Producto 28",
     "description": "Descripción del producto 28",
     "price": 3300,
@@ -308,7 +280,6 @@
     "status": true
   },
   {
-    "id": 29,
     "title": "Producto 29",
     "description": "Descripción del producto 29",
     "price": 1900,
@@ -319,7 +290,6 @@
     "status": true
   },
   {
-    "id": 30,
     "title": "Producto 30",
     "description": "Descripción del producto 30",
     "price": 2600,
@@ -330,7 +300,6 @@
     "status": true
   },
   {
-    "id": 31,
     "title": "Producto 31",
     "description": "Descripción del producto 31",
     "price": 3200,
@@ -341,7 +310,6 @@
     "status": true
   },
   {
-    "id": 32,
     "title": "Producto 32",
     "description": "Descripción del producto 32",
     "price": 2100,
@@ -352,7 +320,6 @@
     "status": true
   },
   {
-    "id": 33,
     "title": "Producto 33",
     "description": "Descripción del producto 33",
     "price": 2900,
@@ -363,7 +330,6 @@
     "status": true
   },
   {
-    "id": 34,
     "title": "Producto 34",
     "description": "Descripción del producto 34",
     "price": 2000,
@@ -374,7 +340,6 @@
     "status": true
   },
   {
-    "id": 35,
     "title": "Producto 35",
     "description": "Descripción del producto 35",
     "price": 1800,
@@ -385,7 +350,6 @@
     "status": true
   },
   {
-    "id": 36,
     "title": "Producto 36",
     "description": "Descripción del producto 36",
     "price": 2700,
@@ -396,7 +360,6 @@
     "status": true
   },
   {
-    "id": 37,
     "title": "Producto 37",
     "description": "Descripción del producto 37",
     "price": 3500,
@@ -407,7 +370,6 @@
     "status": true
   },
   {
-    "id": 38,
     "title": "Producto 38",
     "description": "Descripción del producto 38",
     "price": 1500,
@@ -418,7 +380,6 @@
     "status": true
   },
   {
-    "id": 39,
     "title": "Producto 39",
     "description": "Descripción del producto 39",
     "price": 2500,
@@ -429,7 +390,6 @@
     "status": true
   },
   {
-    "id": 40,
     "title": "Producto 40",
     "description": "Descripción del producto 40",
     "price": 1500,
@@ -440,7 +400,6 @@
     "status": true
   },
   {
-    "id": 41,
     "title": "Producto 41",
     "description": "Descripción del producto 41",
     "price": 2500,
@@ -451,7 +410,6 @@
     "status": true
   },
   {
-    "id": 42,
     "title": "Producto 42",
     "description": "Descripción del producto 42",
     "price": 3500,
@@ -462,7 +420,6 @@
     "status": true
   },
   {
-    "id": 43,
     "title": "Producto 43",
     "description": "Descripción del producto 43",
     "price": 2000,
@@ -473,7 +430,6 @@
     "status": true
   },
   {
-    "id": 44,
     "title": "Producto 44",
     "description": "Descripción del producto 44",
     "price": 1800,
@@ -484,7 +440,6 @@
     "status": true
   },
   {
-    "id": 45,
     "title": "Producto 45",
     "description": "Descripción del producto 45",
     "price": 2800,
@@ -495,7 +450,6 @@
     "status": true
   },
   {
-    "id": 46,
     "title": "Producto 46",
     "description": "Descripción del producto 46",
     "price": 3300,
@@ -506,7 +460,6 @@
     "status": true
   },
   {
-    "id": 47,
     "title": "Producto 47",
     "description": "Descripción del producto 47",
     "price": 1900,
@@ -517,7 +470,6 @@
     "status": true
   },
   {
-    "id": 48,
     "title": "Producto 48",
     "description": "Descripción del producto 48",
     "price": 2900,
@@ -528,7 +480,6 @@
     "status": true
   },
   {
-    "id": 49,
     "title": "Producto 49",
     "description": "Descripción del producto 49",
     "price": 3200,
@@ -539,7 +490,6 @@
     "status": true
   },
   {
-    "id": 50,
     "title": "Producto 50",
     "description": "Descripción del producto 50",
     "price": 1700,

@@ -1,111 +1,148 @@
-import fs from "fs";
+import CartModel from "../model/carts.model.js";
 
-export default class CartsManager {
-  constructor(productsPath, cartsPath) {
-    this.productsPath = productsPath;
-    this.cartsPath = cartsPath;
-  }
-
-  async #generateId() {
-    try {
-      const carts = await this.getCarts();
-      let id;
-      if (carts.length > 0) {
-        id = Math.max(...carts.map((cart) => cart.id)) + 1;
-      } else {
-        id = 1;
-      }
-      return id;
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
+class CartManager {
   async createCart() {
     try {
-      const carts = await this.getCarts();
-      const newCart = {
-        id: await this.#generateId(),
-        products: [],
-      };
-      carts.push(newCart);
-      await fs.promises.writeFile(
-        this.cartsPath,
-        JSON.stringify(carts, null, 2)
-      );
-      return newCart;
+      const nuevoCarrito = new CartModel({ products: [] });
+      await nuevoCarrito.save();
+      return nuevoCarrito;
     } catch (error) {
-      console.log(error);
+      console.log("Error al crear el carrito", error);
+      throw error;
     }
   }
 
   async getCartById(cartId) {
     try {
-      const carts = await this.getCarts();
-      const cart = carts.find((c) => c.id === cartId);
-      return cart ? cart : "Not found";
+      const carrito = await CartModel.findById(cartId);
+      if (!carrito) {
+        console.log("No existe ese carrito con el id");
+        return null;
+      }
+
+      return carrito;
     } catch (error) {
-      console.log(error);
+      console.log("Error al traer el carrito", error);
     }
   }
 
-  async addProductToCart(cartId, productId, quantity) {
+  async addProductToCart(cartId, productId, quantity = 1) {
     try {
-      const carts = await this.getCarts();
-      const products = await this.getProducts();
-      const cartIndex = carts.findIndex((c) => c.id === cartId);
-      const productIndex = products.findIndex((p) => p.id === productId);
+      const carrito = await this.getCartById(cartId);
+      const existeProducto = carrito.products.find(
+        (item) => item.product.toString() === productId
+      );
 
-      if (cartIndex !== -1 && productIndex !== -1) {
-        const existingProduct = carts[cartIndex].products.find(
-          (p) => p.product === productId
-        );
-
-        if (existingProduct) {
-          existingProduct.quantity += quantity;
-        } else {
-          carts[cartIndex].products.push({
-            product: productId,
-            quantity: quantity,
-          });
-        }
-
-        await fs.promises.writeFile(
-          this.cartsPath,
-          JSON.stringify(carts, null, 2)
-        );
-        return carts[cartIndex];
+      if (existeProducto) {
+        existeProducto.quantity += quantity;
       } else {
-        console.log("Cart or product not found");
+        carrito.products.push({ product: productId, quantity });
       }
+
+      //Cuando modifican tienen que marcarlo como "markModified";
+      carrito.markModified("products");
+
+      await carrito.save();
+      return carrito;
     } catch (error) {
-      console.log(error);
+      console.error("Error al agregar un producto", error);
+      throw error;
     }
   }
 
-  async getCarts() {
+  async eliminarProductoDelCarrito(cartId, productId) {
     try {
-      if (fs.existsSync(this.cartsPath)) {
-        const carts = await fs.promises.readFile(this.cartsPath, "utf-8");
-        return JSON.parse(carts);
-      } else {
-        return [];
+      const cart = await CartModel.findById(cartId);
+
+      if (!cart) {
+        throw new Error("Carrito no encontrado");
       }
+
+      cart.products = cart.products.filter(
+        (item) => item.product._id.toString() !== productId
+      );
+
+      await cart.save();
+
+      return cart;
     } catch (error) {
-      console.log(error);
+      console.error("Error al eliminar el producto del carrito ", error);
+      throw error;
     }
   }
 
-  async getProducts() {
+  async actualizarCarrito(cartId, updatedProducts) {
     try {
-      if (fs.existsSync(this.productsPath)) {
-        const products = await fs.promises.readFile(this.productsPath, "utf-8");
-        return JSON.parse(products);
+      const cart = await CartModel.findById(cartId);
+
+      if (!cart) {
+        throw new Error("Carrito no encontrado");
+      }
+
+      cart.products = updatedProducts;
+
+      // Vamos a marcar la propiedad "products" como modificada antes de guardar
+      cart.markModified("products");
+
+      await cart.save();
+
+      return cart;
+    } catch (error) {
+      console.error("Error al actualizar el carrito en el gestor", error);
+      throw error;
+    }
+  }
+
+  async actualizarCantidadDeProducto(cartId, productId, newQuantity) {
+    try {
+      const cart = await CartModel.findById(cartId);
+
+      if (!cart) {
+        throw new Error("Carrito no encontrado");
+      }
+
+      const productIndex = cart.products.findIndex(
+        (item) => item.product._id.toString() !== productId
+      );
+
+      if (productIndex !== -1) {
+        cart.products[productIndex].quantity = newQuantity;
+
+        // Marcar la propiedad "products" como modificada antes de guardar
+        cart.markModified("products");
+
+        await cart.save();
+        return cart;
       } else {
-        return [];
+        throw new Error("Producto no encontrado en el carrito");
       }
     } catch (error) {
-      console.log(error);
+      console.error(
+        "Error al actualizar la cantidad del producto en el carrito",
+        error
+      );
+      throw error;
+    }
+  }
+
+  async vaciarCarrito(cartId) {
+    try {
+      const cart = await CartModel.findByIdAndUpdate(
+        cartId,
+        { products: [] },
+        { new: true }
+      );
+
+      if (!cart) {
+        throw new Error("Carrito no encontrado");
+      }
+
+      return cart;
+    } catch (error) {
+      console.error("Error al vaciar el carrito en el gestor", error);
+      throw error;
     }
   }
 }
+
+export default CartManager;

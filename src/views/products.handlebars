@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Productos</h1>
+    <div class="contenedorCards">
+      {{#each productos}}
+        <div class="card">
+          <h2>{{title}}</h2>
+          <p>{{description}}</p>
+          <p>Precio: ${{price}}</p>
+          <p>Categoría: {{category}}</p>
+          <button>Agregar al Carrito</button>
+        </div>
+      {{/each}}
+    </div>
+    <div class="pagination">
+      {{#if hasPrevPage}}
+        <a href="/products?page={{prevPage}}">Anterior</a>
+      {{/if}}
+      <span>Página {{currentPage}} de {{totalPages}}</span>
+      {{#if hasNextPage}}
+        <a href="/products?page={{nextPage}}">Siguiente</a>
+      {{/if}}
+    </div>
+  </body>
+</html>

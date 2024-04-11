@@ -1,30 +1,44 @@
 import express from "express";
 import ProductsManager from "../controller/ProductsManager.js";
-//
-import mongoose from "mongoose";
-import mongoosePaginate from "mongoose-paginate-v2";
-//
 const router = express.Router();
 
-const producto1 = new ProductsManager("./src/model/products.json");
+const productManager = new ProductsManager();
 
 router.get("/api/products", async (req, res) => {
   try {
-    let page = parseInt(req.query.page) || 1;
-    //////
-    let limit = parseInt(req.query.limit) || 10;
-    if (limit) {
-      let products = await producto1.getProducts();
-      let productsLimit = products.slice(0, limit);
-      res.json(productsLimit);
-    } else {
-      res.json(await producto1.getProducts());
-    }
+    const { limit = 10, page = 1, sort, query } = req.query;
+
+    const productos = await productManager.getProducts({
+      limit: parseInt(limit),
+      page: parseInt(page),
+      sort,
+      query,
+    });
+
+    res.json({
+      status: "success",
+      payload: productos,
+      totalPages: productos.totalPages,
+      prevPage: productos.prevPage,
+      nextPage: productos.nextPage,
+      page: productos.page,
+      hasPrevPage: productos.hasPrevPage,
+      hasNextPage: productos.hasNextPage,
+      prevLink: productos.hasPrevPage
+        ? `/api/products?limit=${limit}&page=${productos.prevPage}&sort=${sort}&query=${query}`
+        : null,
+      nextLink: productos.hasNextPage
+        ? `/api/products?limit=${limit}&page=${productos.nextPage}&sort=${sort}&query=${query}`
+        : null,
+    });
   } catch (error) {
-    res.status(500).json({ error: "Error interno del servidor" });
+    console.error("Error al obtener productos", error);
+    res.status(500).json({
+      status: "error",
+      error: "Error interno del servidor",
+    });
   }
 });
-
 router.get("/api/products/:pId", async (req, res) => {
   try {
     let { pId } = req.params;
