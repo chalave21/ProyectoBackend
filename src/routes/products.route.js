@@ -4,10 +4,12 @@ const router = express.Router();
 
 const productManager = new ProductsManager();
 
+// Ruta GET /api/products
 router.get("/api/products", async (req, res) => {
   try {
     const { limit = 10, page = 1, sort, query } = req.query;
 
+    // Llamar a la función getProducts() con los parámetros de consulta
     const productos = await productManager.getProducts({
       limit: parseInt(limit),
       page: parseInt(page),
@@ -15,21 +17,18 @@ router.get("/api/products", async (req, res) => {
       query,
     });
 
+    // Devolver los productos como respuesta
     res.json({
       status: "success",
-      payload: productos,
+      payload: productos.docs,
       totalPages: productos.totalPages,
       prevPage: productos.prevPage,
       nextPage: productos.nextPage,
       page: productos.page,
       hasPrevPage: productos.hasPrevPage,
       hasNextPage: productos.hasNextPage,
-      prevLink: productos.hasPrevPage
-        ? `/api/products?limit=${limit}&page=${productos.prevPage}&sort=${sort}&query=${query}`
-        : null,
-      nextLink: productos.hasNextPage
-        ? `/api/products?limit=${limit}&page=${productos.nextPage}&sort=${sort}&query=${query}`
-        : null,
+      prevLink: productos.prevLink,
+      nextLink: productos.nextLink,
     });
   } catch (error) {
     console.error("Error al obtener productos", error);
@@ -39,6 +38,7 @@ router.get("/api/products", async (req, res) => {
     });
   }
 });
+
 router.get("/api/products/:pId", async (req, res) => {
   try {
     let { pId } = req.params;

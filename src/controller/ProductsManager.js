@@ -51,6 +51,7 @@ class ProductsManager {
   //   }
   // }
 
+  // Modificar la función getProducts() en tu productManager
   async getProducts({ limit = 10, page = 1, sort, query } = {}) {
     try {
       const skip = (page - 1) * limit;
@@ -58,7 +59,7 @@ class ProductsManager {
       let queryOptions = {};
 
       if (query) {
-        queryOptions = { category: query };
+        queryOptions = { ...queryOptions, title: query };
       }
 
       const sortOptions = {};
